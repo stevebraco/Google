@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import React, { useRef } from 'react'
 import { MicrophoneIcon, SearchIcon, XIcon } from '@heroicons/react/solid'
 import User from './User'
+import SearchHeaderOptions from './SearchHeaderOptions'
 
 export default function SearchHeader() {
   const router = useRouter()
@@ -14,7 +15,7 @@ export default function SearchHeader() {
     if(!term.trim()) {
       return
     }
-    router.push(`/search?term=${term.trim()}`)
+    router.push(`/search?term=${term.trim()}&searchType=`)
   }
   return (
     <header className='sticky top-0 bg-white'>
@@ -40,6 +41,7 @@ export default function SearchHeader() {
        </form>
         {/* <User  /> */}
        </div>      
+       <SearchHeaderOptions />
     </header>
   )
 }
